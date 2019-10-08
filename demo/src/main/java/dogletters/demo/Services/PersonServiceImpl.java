@@ -59,6 +59,8 @@ public class PersonServiceImpl implements PersonService {
                 true, true, true, true, getGrantedAuthorities(person));
     }
 
+    // i'm not sure what this is for??
+    // do we use this?
     private List<GrantedAuthority> getGrantedAuthorities(Person person){
         List<GrantedAuthority> authorities = new ArrayList<>();
 
@@ -100,9 +102,11 @@ public class PersonServiceImpl implements PersonService {
     // auth : no auth
     @Override
     public String login(Person person) {
-
+        // grab a person object from db using findByUserName method
         Person newPerson = personRepository.findByUsername(person.getUsername());
-        //userRepository.login(user.getUsername(), user.getPassword()) != null
+
+        // return null if user is not found
+        // otherwise check that password matches, load user details, and return a token
         if(newPerson != null && bCryptPasswordEncoder.matches(person.getPassword(), newPerson.getPassword())){
             UserDetails userDetails = loadUserByUsername(newPerson.getUsername());
             return jwtUtil.generateToken(userDetails);

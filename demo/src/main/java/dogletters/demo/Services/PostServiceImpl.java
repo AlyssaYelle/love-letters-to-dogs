@@ -29,11 +29,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post createPost(Post post){
-//        Authentication auth = authImpl.getAuthentication();
-//        User user = userService.getUser(auth.getName());
-//        post.setUser(user);
-//        user.addPost(post);
-//        return postRepository.save(post);
+
         System.out.println("creating post");
         // post.getPerson() returns a Person object
         // Person.getUsername returns a string username
@@ -58,8 +54,10 @@ public class PostServiceImpl implements PostService {
         return postRepository.save(post);
     }
 
+    // have not tested
     @Override
-    @Transactional
+    //???
+    //@Transactional
     public void deletePostById(Long postId){
         Post post = postRepository.findById(postId).get();
         Person person = personRepository.findById(post.getPerson().getId()).get();

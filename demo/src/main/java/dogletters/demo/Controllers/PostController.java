@@ -28,11 +28,26 @@ public class PostController {
     @GetMapping("/list")
     public Iterable<Post> listAllPosts(){ return postService.listAllPosts(); }
 
+    // a logged in user should be able to create a post
+//    {
+//        "title" : "a title",
+//        "content" : "some content",
+//        "person" : {
+//            "username" : "user"
+//        }
+//    }
     @PostMapping("/create")
     public Post createPost(@RequestBody Post post){
         return postService.createPost(post);
     }
+    // response looks like:
+//    {
+//        "id": 2,
+//            "title": "Friday",
+//            "content": "Friday is a bouncy boye! A very good boye!"
+//    }
 
+    // user should be able to delete their posts
     @DeleteMapping("/delete/{postId}")
     public ResponseEntity deletePostById(@PathVariable Long postId) {
         // Post post = postRepository.findById(postId).get();
