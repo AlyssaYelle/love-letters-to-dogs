@@ -54,10 +54,8 @@ public class PostServiceImpl implements PostService {
         return postRepository.save(post);
     }
 
-    // have not tested
+    // TODO : test this
     @Override
-    //???
-    //@Transactional
     public void deletePostById(Long postId){
         Post post = postRepository.findById(postId).get();
         Person person = personRepository.findById(post.getPerson().getId()).get();
