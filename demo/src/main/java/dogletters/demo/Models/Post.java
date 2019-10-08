@@ -33,6 +33,15 @@ public class Post {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Person person;
 
+    @JsonIgnore
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setUser(Person person) {
+        this.person = person;
+    }
+
     // one post may have many comments
     @OneToMany(
             mappedBy = "post",
@@ -42,6 +51,8 @@ public class Post {
     private List<Comment> comments;
 
     public Post(){};
+
+    // column getters and setters
 
     public Long getId(){
         return this.id;
@@ -67,12 +78,5 @@ public class Post {
         this.content = content;
     }
 
-    @JsonIgnore
-    public Person getPerson() {
-        return person;
-    }
 
-    public void setUser(Person person) {
-        this.person = person;
-    }
 }

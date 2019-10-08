@@ -12,11 +12,17 @@ public class PersonRoleController {
     @Autowired
     PersonRoleService roleService;
 
+    // lists all the users with specified role
     @GetMapping("/{rolename}")
     public Iterable<Person> getRole(@PathVariable String rolename) {
         return roleService.ListAllUsersWithRoleAuth(rolename);
     }
 
+    // create a new role
+    // only DBA should be able to do that (after initial creation of db and DBA role)
+//    {
+//        "name" : "ROLE NAME"
+//    }
     @PostMapping("/createRole")
     public PersonRole createRole(@RequestBody PersonRole role) {
 

@@ -21,7 +21,7 @@ public class PersonRoleServiceImpl implements PersonRoleService {
         return personRoleRepository.findByName(roleName);
     }
 
-    // find all users who have given role????
+    // find all users who have given role
     @Override
     public Iterable<Person> ListAllUsersWithRoleAuth(String roleName) {
         PersonRole personRole = getRole(roleName);
