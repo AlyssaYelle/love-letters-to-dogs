@@ -123,7 +123,7 @@ public class Person {
         return posts;
     }
 
-    public List<Comment> addPost(Comment comment){
+    public List<Comment> addComment(Comment comment){
         if (comment==null ){
             comments = new ArrayList<>();
         }
