@@ -8,6 +8,8 @@ import dogletters.demo.Services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,16 +27,16 @@ public class PostController {
     @Autowired
     PostRepository postRepository;
 
+
     @GetMapping("/list")
-    public Iterable<Post> listAllPosts(){ return postService.listAllPosts(); }
+    public Iterable<Post> listAllPosts(){
+        return postService.listAllPosts();
+    }
 
     // a logged in user should be able to create a post
 //    {
 //        "title" : "a title",
-//        "content" : "some content",
-//        "person" : {
-//            "username" : "user"
-//        }
+//        "content" : "some content"
 //    }
     @PostMapping("/create")
     public Post createPost(@RequestBody Post post){
@@ -42,9 +44,9 @@ public class PostController {
     }
     // response looks like:
 //    {
-//        "id": 2,
-//            "title": "Friday",
-//            "content": "Friday is a bouncy boye! A very good boye!"
+//        "id": 4,
+//            "title": "Garry",
+//            "content": "Garry is 80lbs of sweetness topped with a BIG precious head."
 //    }
 
     // user should be able to delete their posts
