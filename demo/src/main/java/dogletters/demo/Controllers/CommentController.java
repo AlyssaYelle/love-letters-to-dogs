@@ -29,11 +29,23 @@ public class CommentController {
         return commentService.listAllComments();
     }
 
+    // request will look like
+//    {
+//        "comment" : "Big headed sweete boye!!",
+//        "post" : {
+//            "id" : 4
+//        }
+//    }
     @PostMapping("/create")
     public Comment createComment(@RequestBody Comment comment){
 
         return commentService.createComment(comment);
     }
+    // should return something of form
+//    {
+//        "id": 2,
+//            "comment": "Big headed sweete boye!!"
+//    }
 
     // user should be able to delete their posts
     @DeleteMapping("/delete/{postId}")

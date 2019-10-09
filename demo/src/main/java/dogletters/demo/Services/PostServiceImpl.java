@@ -48,7 +48,7 @@ public class PostServiceImpl implements PostService {
         // now we can set the poster of the post
         post.setUser(person);
 
-        // and add the post the the list of person's posts
+        // and add the post to the list of person's posts
         person.addPost(post);
 
         // and finally save to db
