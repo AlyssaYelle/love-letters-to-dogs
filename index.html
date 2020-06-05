@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <title>d o g s</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+<!--   <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet"> -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+      <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <p id='home-button'>Home</p>
+          <p id='postcards-button'>My Luv Letters</p>
+        </div>
+      </div>
+      <h1>Luv Letters 2 Dogs</h1>
+    </header>
+
+  <div class='page-content-helper-container'>
+    <div class='page-content'>
+
+      <section id='random-dog-section'>
+        <div class='random-dog-img-container'>
+
+          <img id='random-dog' src='https://images.dog.ceo/breeds/hound-blood/n02088466_7486.jpg' alt='dog'>
+
+                <!-- Loading animation container -->
+          <div class="loading" id='loading-spinner'>
+              <!-- We make this div spin -->
+              <div class="spinner">
+                  <!-- Mask of the quarter of circle -->
+                  <div class="mask">
+                      <!-- Inner masked circle -->
+                      <div class="maskedCircle"></div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+
+        <div class='ask-about-luv-letter'>
+          <h3>Would you like to write a luv letter to this dog?</h3>
+          <div id='yes-or-no-buttons'>
+            <button onclick='displayLuvLetterForm()'>yes</button>
+            <button onclick='fetchRandomDog()'>no</button>
+          </div>
+        </div>
+      </section>
+
+      <section id='luv-letter-form-section'>
+                <img id='form-dog' src='#' alt='dog'>
+
+  <!--         <form action="#" onsubmit="sendLuvLetter();return false"> -->
+          <form id='ll-form'>
+            <div class="row">
+              <div class="col-25">
+                <label for="name">Name</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="name" name="name" placeholder="Your name (optional)">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="luv-letter-input">Luv Letter</label>
+              </div>
+              <div class="col-75">
+                <textarea id="luv-letter-input" name="luv-letter-input" placeholder="Write your letter here!" style="height:200px"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <input type="submit" value="Send">
+            </div>
+        </form>
+
+      </section>
+
+      <section id='postcard-display'>
+      </section>
+
+    </div>
+  </div>
+
+<script src='js/ll2d-manager.js'></script>
+</body>
+
+</html>
